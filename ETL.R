@@ -132,6 +132,8 @@ t.test(vl_receita_bruta_esperada ~ atividade, data = amostra_20000_operacoes_bas
 
 t.test(vl_receita_bruta_esperada ~ atividade, data = operacao_empreendimento)
 
+t.test(amostra_20000_operacoes_basica_estado$vl_receita_bruta_esperada[amostra_20000_operacoes_basica_estado$atividade == "Agrícola"])
+
 t.test(rnorm(100, mean = 20))
 
 
