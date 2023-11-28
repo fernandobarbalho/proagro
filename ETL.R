@@ -116,3 +116,24 @@ amostra_20000_operacoes_basica_estado<-
 soma_receita_bruta_amostra <- sum(amostra_20000_operacoes_basica_estado$vl_receita_bruta_esperada )
 soma_receita_bruta <- sum(operacao_empreendimento$vl_receita_bruta_esperada)
 
+
+operacao_empreendimento %>%
+  slice_sample(n= tam_slice) %>%
+  summarise( quantidade = n(),
+             proporcao = n()/tam_slice,
+             .by = modalidade) %>%
+  arrange(desc(quantidade))
+
+prop.test(115, 20000)
+
+t.test(vl_receita_bruta_esperada ~ atividade, data = amostra_20000_operacoes_basica_estado)
+
+
+
+t.test(vl_receita_bruta_esperada ~ atividade, data = operacao_empreendimento)
+
+t.test(rnorm(100, mean = 20))
+
+
+amostra_20000_operacoes_basica_estado %>%
+  readr::write_csv("amostra_20000_operacoes_basica_estado.csv")
