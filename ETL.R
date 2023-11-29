@@ -139,3 +139,17 @@ t.test(rnorm(100, mean = 20))
 
 amostra_20000_operacoes_basica_estado %>%
   readr::write_csv("amostra_20000_operacoes_basica_estado.csv")
+
+tam_slice <- 60000
+
+set.seed(1972)
+amostra_60000_operacoes_basica_estado<-
+  operacao_empreendimento %>%
+  slice_sample(n= tam_slice)
+
+
+t.test(amostra_60000_operacoes_basica_estado$vl_receita_bruta_esperada[amostra_60000_operacoes_basica_estado$atividade == "Agrícola"])
+
+
+amostra_60000_operacoes_basica_estado %>%
+  readr::write_csv("amostra_60000_operacoes_basica_estado.csv")
