@@ -137,6 +137,8 @@ t.test(amostra_20000_operacoes_basica_estado$vl_receita_bruta_esperada[amostra_2
 t.test(rnorm(100, mean = 20))
 
 
+
+
 amostra_20000_operacoes_basica_estado %>%
   readr::write_csv("amostra_20000_operacoes_basica_estado.csv")
 
@@ -153,3 +155,7 @@ t.test(amostra_60000_operacoes_basica_estado$vl_receita_bruta_esperada[amostra_6
 
 amostra_60000_operacoes_basica_estado %>%
   readr::write_csv("amostra_60000_operacoes_basica_estado.csv")
+
+t.test(vl_receita_bruta_esperada ~ atividade, data = amostra_60000_operacoes_basica_estado)
+
+amostra_60000_operacoes_basica_estado 
